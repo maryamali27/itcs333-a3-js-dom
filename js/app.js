@@ -80,5 +80,9 @@
         input.value = '';
         updateView();
     });
+
+    input.addEventListener('input', function() {
+        error.classList.add('hidden');
+    });
 })();
 
