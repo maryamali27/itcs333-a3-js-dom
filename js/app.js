@@ -98,5 +98,16 @@
         updateView();
     });
 
+
+        filters.addEventListener('click', function (event) {
+        if (event.target.tagName !== 'BUTTON') {
+            return;
+        }
+
+        currentFilter = event.target.id.replace('filter-', '');
+        updateView();
+    });
+
+
 })();
 
