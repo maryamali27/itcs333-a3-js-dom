@@ -13,8 +13,23 @@
 
     const error = document.getElementById('error-msg');
     const counter = document.getElementById('counter');
-    const filter = document.getElementById('.filter');
+    const filters = document.getElementById('.filters');
     let currentFilter = 'all';
 
+    function createItem(text){
+        const li = document.createElement('li');
+
+        const span = document.createElement('span');
+        span.className = 'item=text';
+        span.textContent = text;
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.type = 'button';
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.textContent = 'Delete';
+
+        li.append(span, deleteBtn);
+        return li;
+    }
 })();
 
