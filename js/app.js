@@ -4,3 +4,11 @@
 // using event delegation on #todo-list.
 
 // TODO: your code here
+(function() { 
+    'use strict';
+
+    const form = document.getElementById('todo-form');
+    const inout = document.getElementById('todo-input');
+    const list = document.getElementById('todo-list');
+})();
+
