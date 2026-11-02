@@ -13,14 +13,15 @@
 
     const error = document.getElementById('error-msg');
     const counter = document.getElementById('counter');
-    const filters = document.getElementById('.filters');
+    const filters = document.querySelector('.filters');
+
     let currentFilter = 'all';
 
     function createItem(text){
         const li = document.createElement('li');
 
         const span = document.createElement('span');
-        span.className = 'item=text';
+        span.className = 'item-text';
         span.textContent = text;
 
         const deleteBtn = document.createElement('button');
@@ -30,6 +31,38 @@
 
         li.append(span, deleteBtn);
         return li;
+    }
+
+    function updateView() {
+        let left = 0 ; 
+
+        for (const li of list.children) {
+            const done = li.classList.contains('completed'); 
+
+            if(!done){
+                left++;
+            }
+
+            let show = true;
+            if(currentFilter === 'active'){
+                show = !done;
+            }
+
+            if(currentFilter === 'done'){
+                show = done;
+            }
+            if(show){
+                li.style.display = '';
+            }else{
+                li.style.display = 'none';
+            }
+
+            if (left === 1){
+                counter.textContent = '1 item left';
+            }else{
+                counter.textContent = left + 'items left';
+            }
+
     }
 })();
 
