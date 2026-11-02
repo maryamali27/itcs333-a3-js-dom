@@ -57,12 +57,28 @@
                 li.style.display = 'none';
             }
 
-            if (left === 1){
-                counter.textContent = '1 item left';
-            }else{
-                counter.textContent = left + 'items left';
-            }
+        }
 
+        if (left === 1) {
+            counter.textContent = '1 item left';
+        } else {
+            counter.textContent = left + ' items left';
+        }
     }
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const text = input.value.trim();
+
+        if (text === ''){
+            error.classList.remove('hidden');
+            return;
+        }
+
+        error.classList.add('hidden');
+        list.appendChild(createItem(text));
+        input.value = '';
+        updateView();
+    });
 })();
 
