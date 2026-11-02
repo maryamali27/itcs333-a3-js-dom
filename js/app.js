@@ -84,5 +84,19 @@
     input.addEventListener('input', function() {
         error.classList.add('hidden');
     });
+
+    
+    list.addEventListener('click', function (event) {
+        const deleteBtn = event.target.closest('.delete-btn');
+
+        if (deleteBtn) {
+            deleteBtn.closest('li').remove();
+        } else if (event.target.classList.contains('item-text')) {
+            event.target.closest('li').classList.toggle('completed');
+        }
+
+        updateView();
+    });
+
 })();
 
